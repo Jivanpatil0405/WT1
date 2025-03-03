@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Bio Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #c4b9b9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: rgb(199, 145, 145);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        #profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Personal Bio Page</h1>
+        <div id="bio">
+            <img id="profile-pic" src="" alt="Profile Picture" />
+            <h2 id="name"></h2>
+            <p id="profession"></p>
+            <p id="education"></p>
+            <p id="skills"></p>
+        </div>
+        <button id="update-btn">Update Bio</button>
+    </div>
+
+    <script>
+        function collectBio() {
+            let name = prompt("Please enter your name:");
+            if (!name) {
+                alert("Name cannot be empty!");
+                return;
+            }
+
+            let profession = prompt("Please enter your profession:");
+            if (!profession) {
+                alert("Profession cannot be empty!");
+                return;
+            }
+
+            let education = prompt("Please enter your education:");
+            if (!education) {
+                alert("Education cannot be empty!");
+                return;
+            }
+
+            let skills = prompt("Please enter your skills (comma-separated):");
+            if (!skills) {
+                alert("Skills cannot be empty!");
+                return;
+            }
+
+            let profilePic = prompt("Please enter the URL of your profile picture:");
+            if (!profilePic) {
+                alert("Profile picture URL cannot be empty!");
+                return;
+            }
+
+            alert(`Name: ${name}\nProfession: ${profession}\nEducation: ${education}\nSkills: ${skills}\nProfile Picture URL: ${profilePic}`);
+            console.log(`Name: ${name}`);
+            console.log(`Profession: ${profession}`);
+            console.log(`Education: ${education}`);
+            console.log(`Skills: ${skills}`);
+            console.log(`Profile Picture URL: ${profilePic}`);
+
+            document.getElementById("name").innerText = name;
+            document.getElementById("profession").innerText = profession;
+            document.getElementById("education").innerText = `Education: ${education}`;
+            document.getElementById("skills").innerText = `Skills: ${skills}`;
+            document.getElementById("profile-pic").src = profilePic;
+        }
+
+        collectBio();
+        document.getElementById("update-btn").addEventListener("click", collectBio);
+    </script>
+</body>
+</html>
